@@ -28,13 +28,6 @@ public class MainActivity extends AppCompatActivity {
         final TextView mainMessage = findViewById(R.id.tvMainMessage);
         Button myButton = findViewById(R.id.btnToggle);
 
-        //log initial Visiblity state
-        if (mainMessage.getVisibility() == View.VISIBLE)
-            Log.i(TAG, "onCreate: VISIBILITY is true");
-        else if (mainMessage.getVisibility() == View.INVISIBLE)
-            Log.i(TAG, "onCreate: VISIBILITY is false");
-        else Log.i(TAG, "onCreate: unable to get VISIBILITY status");
-
         //if this not the first time through this activity, restore value of tvVisible
         if (savedInstanceState != null) {
             tvVisible = savedInstanceState.getBoolean("mainMessageKey");
@@ -47,9 +40,7 @@ public class MainActivity extends AppCompatActivity {
             mainMessage.setVisibility(View.INVISIBLE);
         }
 
-        /**
-         * Create actions to be taken by the button
-         */
+        //Create actions to be taken by the button
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Store the message visibility state
-     * @param outState
+     * @param outState state of tvVisible
      */
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
